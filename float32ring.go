@@ -45,7 +45,9 @@ func (r *RingFloat32) Avg() float32 {
 	for _, v := range r.buff {
 		total += v
 	}
-
+	if len(r.buff) == 0 {
+		return 0
+	}
 	return total / float32(len(r.buff))
 }
 
